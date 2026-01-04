@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-    base: '/first-class_LP/', // ← リポジトリ名に合わせる
+    base: './', // 相対パスを使用
     plugins: [react()],
     server: {
         port: 3000,

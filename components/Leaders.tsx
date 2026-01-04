@@ -22,7 +22,7 @@ const Leaders: React.FC = () => {
            <AnimatedSection direction="right" delay={0.3} className="lg:col-span-8 relative group border-r border-gray-200">
               <div className="h-[600px] lg:h-[800px] overflow-hidden relative">
                  <ParallaxImage
-                   src={`${import.meta.env.BASE_URL}images/leaders/sachi.jpg`}
+                   src="./images/leaders/sachi.jpg"
                    alt="Sachi Ishibashi"
                    className="w-full h-full object-cover brightness-100 group-hover:brightness-110 transition-all duration-700"
                    speed={0.2}
@@ -43,7 +43,7 @@ const Leaders: React.FC = () => {
            <AnimatedSection direction="left" delay={0.4} className="lg:col-span-4 relative group">
               <div className="h-[600px] lg:h-[700px] overflow-hidden relative">
                  <ParallaxImage
-                   src={`${import.meta.env.BASE_URL}images/leaders/maiko.jpg`}
+                   src="./images/leaders/maiko.jpg"
                    alt="Maiko Mizuta"
                    className="w-full h-full object-cover brightness-100 group-hover:brightness-110 transition-all duration-700"
                    speed={0.2}
@@ -86,7 +86,7 @@ const Leaders: React.FC = () => {
                 }}
               >
                  <img 
-                   src={`${import.meta.env.BASE_URL}images/origin.jpg`} 
+                   src="./images/origin.jpg" 
                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" 
                  />
               </div>
