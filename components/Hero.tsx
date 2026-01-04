@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
            <ParallaxImage
              src="./images/hero.jpg"
              alt="Woman Galaxy"
-             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out"
+             className="w-full h-full object-cover hero-image-colorize"
              speed={0.3}
            />
         </div>
@@ -163,6 +163,18 @@ const Hero: React.FC = () => {
           }
           100% {
             transform: translateX(-50%);
+          }
+        }
+        .hero-image-colorize {
+          filter: grayscale(100%);
+          animation: colorize 3s ease-in-out 1.5s forwards;
+        }
+        @keyframes colorize {
+          0% {
+            filter: grayscale(100%);
+          }
+          100% {
+            filter: grayscale(0%);
           }
         }
       `}} />
