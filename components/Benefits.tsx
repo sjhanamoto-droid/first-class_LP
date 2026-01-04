@@ -16,12 +16,12 @@ const Benefits: React.FC = () => {
              animation: 'pulse 4s ease-in-out infinite',
            }}
          ></div>
-         <div className="relative z-10">
+         <div className="relative z-10 flex flex-col items-center justify-center">
            <TextReveal delay={0.2}>
              <h2 className="text-6xl md:text-8xl font-oswald font-bold uppercase tracking-tighter mb-4">Values</h2>
            </TextReveal>
            <AnimatedSection direction="up" delay={0.4}>
-             <p className="text-pink-500 font-bold tracking-widest">FIRST CLASSで得られる4つの価値</p>
+             <p className="text-pink-500 font-bold tracking-widest text-center">FIRST CLASSで得られる4つの価値</p>
            </AnimatedSection>
          </div>
       </AnimatedSection>

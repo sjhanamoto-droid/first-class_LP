@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
       
       {/* Massive Typography Background with Animation */}
       <div 
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 opacity-[0.03] select-none pointer-events-none"
+        className="absolute top-[55%] md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 opacity-[0.03] select-none pointer-events-none"
         style={{
           transform: `translate(-50%, -50%) translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`,
           transition: 'transform 0.1s ease-out',
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 w-full max-w-[1920px] h-full grid grid-cols-1 md:grid-cols-12 gap-0">
         
         {/* Left: Text Content */}
-        <div className="md:col-span-5 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 pb-24 md:pb-12 order-2 md:order-1 relative">
+        <div className="md:col-span-5 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 pb-32 md:pb-12 order-2 md:order-1 relative">
            <div 
              className="absolute top-0 left-6 w-px h-20 bg-black hidden md:block"
              style={{
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Scroll Marquee at Bottom */}
-      <div className="absolute bottom-4 md:bottom-10 left-0 w-full overflow-hidden border-y border-gray-200 bg-white py-3 z-20">
+      <div className="absolute bottom-0 md:bottom-10 left-0 w-full overflow-hidden border-y border-gray-200 bg-white py-3 z-20">
         <div 
           className="whitespace-nowrap flex items-center"
           style={{
