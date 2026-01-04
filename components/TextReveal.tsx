@@ -14,7 +14,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
   delay = 0,
   duration = 0.8,
 }) => {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
   const [isRevealed, setIsRevealed] = useState(false);
 
   useEffect(() => {
@@ -25,6 +25,33 @@ const TextReveal: React.FC<TextRevealProps> = ({
       return () => clearTimeout(timer);
     }
   }, [isVisible, delay]);
+
+  // 初期表示時にも表示されるようにする
+  useEffect(() => {
+    const checkInitialVisibility = () => {
+      if (elementRef.current) {
+        const rect = elementRef.current.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight * 1.5 && rect.bottom > -window.innerHeight * 0.5;
+        if (isInViewport && !isRevealed && !isVisible) {
+          const timer = setTimeout(() => {
+            setIsRevealed(true);
+          }, delay * 1000);
+          return () => clearTimeout(timer);
+        }
+      }
+    };
+    
+    // 初期チェック
+    const timer1 = setTimeout(checkInitialVisibility, 100);
+    
+    // ロード時にもチェック
+    window.addEventListener('load', checkInitialVisibility);
+    
+    return () => {
+      clearTimeout(timer1);
+      window.removeEventListener('load', checkInitialVisibility);
+    };
+  }, [delay, isRevealed, isVisible]);
 
   return (
     <div

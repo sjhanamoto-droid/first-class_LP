@@ -11,9 +11,9 @@ const Concept: React.FC = () => {
       <section id="intro" className="border-b border-gray-200">
         <div className="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2">
            
-           <AnimatedSection direction="right" delay={0.2} className="p-12 lg:p-24 flex flex-col justify-center border-r border-gray-200">
+           <AnimatedSection direction="right" delay={0.2} className="p-8 md:p-12 lg:p-24 flex flex-col justify-center border-r border-gray-200">
               <TextReveal delay={0.3}>
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-12">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight mb-12">
                   「美しく、豊かに、<br/>
                   <span className="text-pink-600">自分らしく</span>」
                 </h2>

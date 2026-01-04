@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-white pt-20">
+    <section className="relative w-full min-h-screen flex flex-col bg-white pt-20 md:pt-20">
       
       {/* Massive Typography Background with Animation */}
       <div 
@@ -41,10 +41,10 @@ const Hero: React.FC = () => {
          </h1>
       </div>
 
-      <div className="relative z-10 w-full max-w-[1920px] h-full grid grid-cols-1 md:grid-cols-12 gap-0">
+      <div className="relative z-10 w-full max-w-[1920px] flex-1 grid grid-cols-1 md:grid-cols-12 gap-0">
         
         {/* Left: Text Content */}
-        <div className="md:col-span-5 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 pb-32 md:pb-12 order-2 md:order-1 relative">
+        <div className="md:col-span-5 flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12 pb-16 md:pb-12 order-2 md:order-1 relative">
            <div 
              className="absolute top-0 left-6 w-px h-20 bg-black hidden md:block"
              style={{
@@ -112,7 +112,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right: Image */}
-        <div className="md:col-span-7 relative h-[50vh] md:h-full order-1 md:order-2 overflow-hidden border-l border-gray-200">
+        <div className="md:col-span-7 relative h-[40vh] md:h-full order-1 md:order-2 overflow-hidden border-l border-gray-200 mb-4 md:mb-0">
            <ParallaxImage
              src="./images/hero.jpg"
              alt="Woman Galaxy"
@@ -124,7 +124,7 @@ const Hero: React.FC = () => {
       </div>
       
       {/* Scroll Marquee at Bottom */}
-      <div className="absolute bottom-0 md:bottom-10 left-0 w-full overflow-hidden border-y border-gray-200 bg-white py-3 z-20">
+      <div className="relative md:absolute md:bottom-10 left-0 w-full overflow-hidden border-y border-gray-200 bg-white py-3 z-20 mt-auto">
         <div 
           className="whitespace-nowrap flex items-center"
           style={{
