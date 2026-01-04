@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
         {/* Right: Image */}
         <div className="md:col-span-7 relative h-[50vh] md:h-full order-1 md:order-2 overflow-hidden border-l border-gray-200">
            <ParallaxImage
-             src="/images/hero.jpg"
+             src={`${import.meta.env.BASE_URL}images/hero.jpg`}
              alt="Woman Galaxy"
              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 ease-in-out"
              speed={0.3}
