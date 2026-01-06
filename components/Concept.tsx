@@ -14,7 +14,7 @@ const Concept: React.FC = () => {
            <AnimatedSection direction="right" delay={0.2} className="p-8 md:p-12 lg:p-24 flex flex-col justify-center border-r border-gray-200">
               <TextReveal delay={0.3}>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight mb-12">
-                  自立からはじまる、自分らしい生き方
+                  <span className="text-pink-600">自立</span>からはじまる、<br/>自分らしい生き方
                 </h2>
               </TextReveal>
               <div className="space-y-8 max-w-lg">
@@ -31,7 +31,7 @@ const Concept: React.FC = () => {
                   <div className="flex items-start">
                     <ArrowDownRight className="w-8 h-8 mr-4 text-pink-600 flex-shrink-0 animate-pulse" />
                     <p className="text-xl font-bold border-b-2 border-pink-600 pb-2 inline-block">
-                      理想を現実に。私が選ぶ人生へ。
+                      理想を現実に。私が選ぶ人生へ
                     </p>
                   </div>
                 </AnimatedSection>
