@@ -22,13 +22,13 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     if (!isVisible) {
       switch (direction) {
         case 'up':
-          return 'translateY(60px)';
+          return 'translateY(30px)';
         case 'down':
-          return 'translateY(-60px)';
+          return 'translateY(-30px)';
         case 'left':
-          return 'translateX(60px)';
+          return 'translateX(30px)';
         case 'right':
-          return 'translateX(-60px)';
+          return 'translateX(-30px)';
         default:
           return 'none';
       }
@@ -37,8 +37,12 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   };
 
   const getOpacity = () => {
-    if (!isVisible && direction === 'fade') return 0;
-    return isVisible ? 1 : 0;
+    // 初期表示時にも要素が表示されるように、fade以外の場合は初期状態でも少し表示
+    if (direction === 'fade') {
+      return isVisible ? 1 : 0;
+    }
+    // 他の方向の場合は、初期状態でも少し表示（アニメーション用）
+    return isVisible ? 1 : 0.3;
   };
 
   return (

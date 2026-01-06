@@ -60,6 +60,21 @@ const TextReveal: React.FC<TextRevealProps> = ({
     };
   }, [delay, isRevealed]);
 
+  // 初期表示時にも表示されるようにする
+  useEffect(() => {
+    if (elementRef.current) {
+      const rect = elementRef.current.getBoundingClientRect();
+      const isInViewport = rect.top < window.innerHeight * 1.5 && rect.bottom > -window.innerHeight * 0.5;
+      if (isInViewport && !isRevealed && !isVisible) {
+        // 初期表示時にも表示
+        const timer = setTimeout(() => {
+          setIsRevealed(true);
+        }, delay * 1000 + 100);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
   return (
     <div
       ref={elementRef}
@@ -67,6 +82,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
       style={{
         clipPath: isRevealed ? 'inset(0% 0% 0% 0%)' : 'inset(0% 100% 0% 0%)',
         transition: `clip-path ${duration}s cubic-bezier(0.77, 0, 0.175, 1) ${delay}s`,
+        opacity: isRevealed || isVisible ? 1 : 0.5, // 初期状態でも少し表示
       }}
     >
       {children}

@@ -11,11 +11,13 @@ const Leaders: React.FC = () => {
         <h2 className="text-6xl md:text-9xl font-oswald font-bold text-gray-300 uppercase tracking-tighter mb-[-4rem] relative z-0 pointer-events-none text-center md:text-left">
           Leaders
         </h2>
-        <AnimatedSection direction="up" delay={0.2} className="relative z-10 mb-20 md:pl-20">
-          <TextReveal delay={0.3}>
-            <h3 className="text-3xl md:text-4xl font-bold font-serif">私たちも、同じ道を<br/>歩んできました</h3>
-          </TextReveal>
-        </AnimatedSection>
+        <div className="relative z-10 mb-20 md:pl-20">
+          <AnimatedSection direction="up" delay={0.2}>
+            <TextReveal delay={0.3}>
+              <h3 className="text-3xl md:text-4xl font-bold font-serif">私たちも、同じ道を<br/>歩んできました</h3>
+            </TextReveal>
+          </AnimatedSection>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 border border-gray-200">
            {/* Representative - Featured */}
