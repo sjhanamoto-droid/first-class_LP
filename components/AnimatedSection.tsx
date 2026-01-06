@@ -17,31 +17,18 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   duration = 0.8,
 }) => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
-  const [isLargeScreen, setIsLargeScreen] = React.useState(false);
-
-  // PCサイズ（1200px以上）を検出
-  React.useEffect(() => {
-    const checkScreenSize = () => {
-      setIsLargeScreen(window.innerWidth >= 1200);
-    };
-    
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
 
   const getTransform = () => {
     if (!isVisible) {
       switch (direction) {
         case 'up':
-          return 'translateY(30px)';
+          return 'translateY(60px)';
         case 'down':
-          return 'translateY(-30px)';
+          return 'translateY(-60px)';
         case 'left':
-          return 'translateX(30px)';
+          return 'translateX(60px)';
         case 'right':
-          return 'translateX(-30px)';
+          return 'translateX(-60px)';
         default:
           return 'none';
       }
@@ -50,11 +37,8 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   };
 
   const getOpacity = () => {
-    if (direction === 'fade') {
-      return isVisible ? 1 : 0;
-    }
-    // アニメーション用に初期状態でも表示（transformでアニメーション）
-    return 1;
+    if (!isVisible && direction === 'fade') return 0;
+    return isVisible ? 1 : 0;
   };
 
   return (
@@ -73,4 +57,3 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
 };
 
 export default AnimatedSection;
-

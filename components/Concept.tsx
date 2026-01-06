@@ -3,6 +3,7 @@ import { ArrowDownRight } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import ParallaxImage from './ParallaxImage';
 import TextReveal from './TextReveal';
+import AnimatedBackgroundGradient from './AnimatedBackgroundGradient';
 
 const Concept: React.FC = () => {
   return (
@@ -12,11 +13,9 @@ const Concept: React.FC = () => {
         <div className="max-w-[1920px] mx-auto grid grid-cols-1 md:grid-cols-2">
            
            <AnimatedSection direction="right" delay={0.2} className="p-8 md:p-12 lg:p-24 flex flex-col justify-center border-r border-gray-200">
-              <TextReveal delay={0.3}>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight mb-12">
-                  <span className="text-pink-600">自立</span>からはじまる、<br/>自分らしい生き方
-                </h2>
-              </TextReveal>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight mb-12 animate-fade-in">
+                <span className="text-pink-600">自立</span>からはじまる、<br/>自分らしい生き方
+              </h2>
               <div className="space-y-8 max-w-lg">
                 <AnimatedSection direction="up" delay={0.5}>
                   <p className="text-lg font-medium leading-relaxed">
@@ -54,14 +53,7 @@ const Concept: React.FC = () => {
       {/* 3 Pillars */}
       <section id="concept" className="bg-black text-white py-24 md:py-32 border-b border-gray-200 relative overflow-hidden">
          {/* Animated Background Gradient */}
-         <div 
-           className="absolute inset-0 opacity-20"
-           style={{
-             background: 'linear-gradient(45deg, #ec4899, #db2777, #9d174d, #831843)',
-             backgroundSize: '400% 400%',
-             animation: 'gradientShift 15s ease infinite',
-           }}
-         ></div>
+         <AnimatedBackgroundGradient />
          
          <div className="max-w-[1920px] mx-auto px-6 md:px-12 relative z-10">
             <AnimatedSection direction="up" delay={0.2}>
@@ -104,14 +96,6 @@ const Concept: React.FC = () => {
                ))}
             </div>
          </div>
-         
-         <style dangerouslySetInnerHTML={{__html: `
-           @keyframes gradientShift {
-             0% { background-position: 0% 50%; }
-             50% { background-position: 100% 50%; }
-             100% { background-position: 0% 50%; }
-           }
-         `}} />
       </section>
     </>
   );

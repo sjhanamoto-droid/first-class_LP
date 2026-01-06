@@ -2,7 +2,6 @@ import React from 'react';
 import { Instagram } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import ParallaxImage from './ParallaxImage';
-import TextReveal from './TextReveal';
 
 const Leaders: React.FC = () => {
   return (
@@ -13,9 +12,7 @@ const Leaders: React.FC = () => {
         </h2>
         <div className="relative z-10 mb-20 md:pl-20">
           <AnimatedSection direction="up" delay={0.2}>
-            <TextReveal delay={0.3}>
-              <h3 className="text-3xl md:text-4xl font-bold font-serif">私たちも、同じ道を<br/>歩んできました</h3>
-            </TextReveal>
+            <h3 className="text-3xl md:text-4xl font-bold font-serif animate-fade-in">私たちも、同じ道を<br/>歩んできました</h3>
           </AnimatedSection>
         </div>
 
@@ -66,9 +63,7 @@ const Leaders: React.FC = () => {
         {/* Story Block */}
         <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-gray-50 p-12 md:p-20">
            <AnimatedSection direction="right" delay={0.3} className="order-2 md:order-1">
-              <TextReveal delay={0.4}>
-                <h3 className="text-3xl font-serif font-bold mb-6">全ての女性が自立すること。<br/>選択の自由をもてる世界へ</h3>
-              </TextReveal>
+              <h3 className="text-3xl font-serif font-bold mb-6 animate-fade-in">全ての女性が自立すること。<br/>選択の自由をもてる世界へ</h3>
               <AnimatedSection direction="up" delay={0.5}>
                 <p className="text-gray-600 leading-relaxed mb-6">
                   2児の母、そして経営者として走り続けた日々。しかし、突如訪れた大病が、私の価値観を大きく変えました。失意の底で私を救ってくれたのは、温かい人の繋がりでした。

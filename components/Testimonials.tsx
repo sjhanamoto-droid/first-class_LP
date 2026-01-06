@@ -1,16 +1,13 @@
 import React from 'react';
 import { Quote } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
-import TextReveal from './TextReveal';
 
 const Testimonials: React.FC = () => {
   return (
     <section className="py-24 border-b border-gray-200">
        <div className="max-w-[1920px] mx-auto px-6 md:px-12">
           <AnimatedSection direction="up" delay={0.2} className="flex flex-col md:flex-row items-end justify-between mb-16">
-             <TextReveal delay={0.3}>
-               <h2 className="text-5xl md:text-7xl font-oswald font-bold uppercase tracking-tighter">Voices</h2>
-             </TextReveal>
+             <h2 className="text-5xl md:text-7xl font-oswald font-bold uppercase tracking-tighter animate-fade-in">Voices</h2>
              <AnimatedSection direction="fade" delay={0.4}>
                <p className="text-gray-500 font-bold mb-2">参加メンバーの声</p>
              </AnimatedSection>

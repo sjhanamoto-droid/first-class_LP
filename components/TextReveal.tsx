@@ -26,17 +26,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
     }
   }, [isVisible, delay]);
 
-  // isVisibleがtrueになったら即座にisRevealedもtrueにする（フォールバック）
-  useEffect(() => {
-    if (isVisible && !isRevealed) {
-      const timer = setTimeout(() => {
-        setIsRevealed(true);
-      }, delay * 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, isRevealed, delay]);
-
-  // 初期表示時にもアニメーションを実行（PCサイズでも確実に動作）
+  // 初期表示時に要素がビューポート内にある場合も表示
   useEffect(() => {
     const checkInitialVisibility = () => {
       if (elementRef.current && !isRevealed) {
@@ -44,13 +34,11 @@ const TextReveal: React.FC<TextRevealProps> = ({
         const windowHeight = window.innerHeight || document.documentElement.clientHeight;
         const windowWidth = window.innerWidth || document.documentElement.clientWidth;
         
-        // 非常に広い範囲でチェック（PCサイズでも確実に検知）
-        const margin = Math.max(windowHeight, windowWidth) * 0.5;
         const isInViewport = 
-          rect.top < windowHeight + margin && 
-          rect.bottom > -margin &&
-          rect.left < windowWidth + margin && 
-          rect.right > -margin;
+          rect.top < windowHeight && 
+          rect.bottom > 0 &&
+          rect.left < windowWidth && 
+          rect.right > 0;
         
         if (isInViewport) {
           const timer = setTimeout(() => {
@@ -60,59 +48,28 @@ const TextReveal: React.FC<TextRevealProps> = ({
         }
       }
     };
-    
-    const checkWithRAF = () => {
-      requestAnimationFrame(() => {
-        checkInitialVisibility();
-        // 複数回試行して確実に検知
-        setTimeout(() => checkInitialVisibility(), 10);
-        setTimeout(() => checkInitialVisibility(), 50);
-        setTimeout(() => checkInitialVisibility(), 100);
-        setTimeout(() => checkInitialVisibility(), 200);
-        setTimeout(() => checkInitialVisibility(), 300);
-        setTimeout(() => checkInitialVisibility(), 500);
-        setTimeout(() => checkInitialVisibility(), 800);
-      });
-    };
-    
-    // 即座にチェック（複数回試行）
-    const checkImmediately = () => {
-      checkInitialVisibility();
-      const timers: NodeJS.Timeout[] = [];
-      for (let i = 0; i < 30; i++) {
-        timers.push(setTimeout(() => {
-          if (checkInitialVisibility()) {
-            timers.forEach(t => clearTimeout(t));
-          }
-        }, i * 50));
-      }
-      return () => {
-        timers.forEach(t => clearTimeout(t));
-      };
-    };
-    
-    const cleanupImmediate = checkImmediately();
-    checkWithRAF();
-    
-    // ロード時にもチェック
+
+    // 即座にチェック
+    checkInitialVisibility();
+
+    // ページ読み込み完了後にもチェック
     if (document.readyState === 'complete') {
-      checkWithRAF();
+      checkInitialVisibility();
     } else {
-      window.addEventListener('load', checkWithRAF);
-      document.addEventListener('DOMContentLoaded', checkWithRAF);
+      window.addEventListener('load', checkInitialVisibility);
+      document.addEventListener('DOMContentLoaded', checkInitialVisibility);
     }
-    
-    // リサイズ時にも再チェック
-    const handleResize = () => {
-      checkWithRAF();
-    };
-    window.addEventListener('resize', handleResize);
-    
+
+    // 複数回チェック（レイアウトが確定するまで）
+    const timers: NodeJS.Timeout[] = [];
+    for (let i = 0; i < 10; i++) {
+      timers.push(setTimeout(checkInitialVisibility, i * 100));
+    }
+
     return () => {
-      cleanupImmediate();
-      window.removeEventListener('load', checkWithRAF);
-      window.removeEventListener('resize', handleResize);
-      document.removeEventListener('DOMContentLoaded', checkWithRAF);
+      timers.forEach(t => clearTimeout(t));
+      window.removeEventListener('load', checkInitialVisibility);
+      document.removeEventListener('DOMContentLoaded', checkInitialVisibility);
     };
   }, [delay, isRevealed]);
 
@@ -123,7 +80,6 @@ const TextReveal: React.FC<TextRevealProps> = ({
       style={{
         clipPath: isRevealed ? 'inset(0% 0% 0% 0%)' : 'inset(0% 100% 0% 0%)',
         transition: `clip-path ${duration}s cubic-bezier(0.77, 0, 0.175, 1) ${delay}s`,
-        opacity: 1, // 常に表示
       }}
     >
       {children}
@@ -132,4 +88,3 @@ const TextReveal: React.FC<TextRevealProps> = ({
 };
 
 export default TextReveal;
-

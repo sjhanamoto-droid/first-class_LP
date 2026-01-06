@@ -1,7 +1,6 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
-import TextReveal from './TextReveal';
 
 const Benefits: React.FC = () => {
   return (
@@ -17,9 +16,7 @@ const Benefits: React.FC = () => {
            }}
          ></div>
          <div className="relative z-10 flex flex-col items-center justify-center">
-           <TextReveal delay={0.2}>
-             <h2 className="text-6xl md:text-8xl font-oswald font-bold uppercase tracking-tighter mb-4">Values</h2>
-           </TextReveal>
+           <h2 className="text-6xl md:text-8xl font-oswald font-bold uppercase tracking-tighter mb-4 animate-fade-in">Values</h2>
            <AnimatedSection direction="up" delay={0.4}>
              <p className="text-pink-500 font-bold tracking-widest text-center">FIRST CLASSで得られる4つの価値</p>
            </AnimatedSection>
