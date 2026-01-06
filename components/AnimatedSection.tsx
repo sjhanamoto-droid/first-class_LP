@@ -32,11 +32,6 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   }, []);
 
   const getTransform = () => {
-    // PCサイズではアニメーション無効
-    if (isLargeScreen) {
-      return 'none';
-    }
-    
     if (!isVisible) {
       switch (direction) {
         case 'up':
@@ -55,15 +50,11 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   };
 
   const getOpacity = () => {
-    // PCサイズでは常に表示
-    if (isLargeScreen) {
-      return 1;
-    }
-    
     if (direction === 'fade') {
       return isVisible ? 1 : 0;
     }
-    return isVisible ? 1 : 1;
+    // アニメーション用に初期状態でも表示（transformでアニメーション）
+    return 1;
   };
 
   return (
