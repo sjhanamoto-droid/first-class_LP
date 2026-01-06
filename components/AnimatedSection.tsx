@@ -17,8 +17,26 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   duration = 0.8,
 }) => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const [isLargeScreen, setIsLargeScreen] = React.useState(false);
+
+  // PCサイズ（1200px以上）を検出
+  React.useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1200);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const getTransform = () => {
+    // PCサイズではアニメーション無効
+    if (isLargeScreen) {
+      return 'none';
+    }
+    
     if (!isVisible) {
       switch (direction) {
         case 'up':
@@ -37,12 +55,15 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   };
 
   const getOpacity = () => {
-    // 初期表示時にも要素が表示されるように、fade以外の場合は初期状態でも少し表示
+    // PCサイズでは常に表示
+    if (isLargeScreen) {
+      return 1;
+    }
+    
     if (direction === 'fade') {
       return isVisible ? 1 : 0;
     }
-    // 他の方向の場合は、初期状態でも少し表示（アニメーション用）
-    return isVisible ? 1 : 0.3;
+    return isVisible ? 1 : 1;
   };
 
   return (

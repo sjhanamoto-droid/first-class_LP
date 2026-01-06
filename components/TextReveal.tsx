@@ -16,6 +16,19 @@ const TextReveal: React.FC<TextRevealProps> = ({
 }) => {
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
   const [isRevealed, setIsRevealed] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  // PCサイズ（1200px以上）を検出
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1200);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   useEffect(() => {
     if (isVisible) {
@@ -26,13 +39,28 @@ const TextReveal: React.FC<TextRevealProps> = ({
     }
   }, [isVisible, delay]);
 
-  // 初期表示時にも表示されるようにする
+  // PCサイズでは即座に表示、それ以外ではアニメーション
   useEffect(() => {
+    if (isLargeScreen) {
+      // PCサイズでは即座に表示
+      setIsRevealed(true);
+      return;
+    }
+
+    // タブレット・スマホサイズではアニメーション
     const checkInitialVisibility = () => {
-      if (elementRef.current) {
+      if (elementRef.current && !isRevealed) {
         const rect = elementRef.current.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight * 1.5 && rect.bottom > -window.innerHeight * 0.5;
-        if (isInViewport && !isRevealed) {
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+        
+        const isInViewport = 
+          rect.top < windowHeight * 2 && 
+          rect.bottom > -windowHeight * 0.5 &&
+          rect.left < windowWidth * 2 && 
+          rect.right > -windowWidth * 0.5;
+        
+        if (isInViewport) {
           const timer = setTimeout(() => {
             setIsRevealed(true);
           }, delay * 1000);
@@ -41,48 +69,51 @@ const TextReveal: React.FC<TextRevealProps> = ({
       }
     };
     
-    // 初期チェック（複数回試行して確実に表示）
+    const checkWithRAF = () => {
+      requestAnimationFrame(() => {
+        checkInitialVisibility();
+        setTimeout(() => checkInitialVisibility(), 50);
+        setTimeout(() => checkInitialVisibility(), 150);
+        setTimeout(() => checkInitialVisibility(), 300);
+        setTimeout(() => checkInitialVisibility(), 500);
+      });
+    };
+    
+    checkWithRAF();
+    
     const timers: NodeJS.Timeout[] = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 20; i++) {
       timers.push(setTimeout(checkInitialVisibility, 100 * (i + 1)));
     }
     
-    // ロード時にもチェック
     if (document.readyState === 'complete') {
-      checkInitialVisibility();
+      checkWithRAF();
     } else {
-      window.addEventListener('load', checkInitialVisibility);
+      window.addEventListener('load', checkWithRAF);
+      document.addEventListener('DOMContentLoaded', checkWithRAF);
     }
+    
+    const handleResize = () => {
+      checkWithRAF();
+    };
+    window.addEventListener('resize', handleResize);
     
     return () => {
       timers.forEach(timer => clearTimeout(timer));
-      window.removeEventListener('load', checkInitialVisibility);
+      window.removeEventListener('load', checkWithRAF);
+      window.removeEventListener('resize', handleResize);
+      document.removeEventListener('DOMContentLoaded', checkWithRAF);
     };
-  }, [delay, isRevealed]);
-
-  // 初期表示時にも表示されるようにする
-  useEffect(() => {
-    if (elementRef.current) {
-      const rect = elementRef.current.getBoundingClientRect();
-      const isInViewport = rect.top < window.innerHeight * 1.5 && rect.bottom > -window.innerHeight * 0.5;
-      if (isInViewport && !isRevealed && !isVisible) {
-        // 初期表示時にも表示
-        const timer = setTimeout(() => {
-          setIsRevealed(true);
-        }, delay * 1000 + 100);
-        return () => clearTimeout(timer);
-      }
-    }
-  }, []);
+  }, [delay, isRevealed, isLargeScreen]);
 
   return (
     <div
       ref={elementRef}
       className={className}
       style={{
-        clipPath: isRevealed ? 'inset(0% 0% 0% 0%)' : 'inset(0% 100% 0% 0%)',
-        transition: `clip-path ${duration}s cubic-bezier(0.77, 0, 0.175, 1) ${delay}s`,
-        opacity: isRevealed || isVisible ? 1 : 0.5, // 初期状態でも少し表示
+        clipPath: isRevealed || isLargeScreen ? 'inset(0% 0% 0% 0%)' : 'inset(0% 100% 0% 0%)',
+        transition: isLargeScreen ? 'none' : `clip-path ${duration}s cubic-bezier(0.77, 0, 0.175, 1) ${delay}s`,
+        opacity: 1, // 常に表示
       }}
     >
       {children}
