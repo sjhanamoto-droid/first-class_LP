@@ -14,23 +14,24 @@ const Concept: React.FC = () => {
            <AnimatedSection direction="right" delay={0.2} className="p-8 md:p-12 lg:p-24 flex flex-col justify-center border-r border-gray-200">
               <TextReveal delay={0.3}>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight mb-12">
-                  「美しく、豊かに、<br/>
-                  <span className="text-pink-600">自分らしく</span>」
+                  自立からはじまる、自分らしい生き方
                 </h2>
               </TextReveal>
               <div className="space-y-8 max-w-lg">
                 <AnimatedSection direction="up" delay={0.5}>
                   <p className="text-lg font-medium leading-relaxed">
-                    多くの女性が「こうありたい」と願う理想の姿。<br/>
-                    しかし、時間、知識、資金、そして仲間…<br/>
-                    様々な理由で、一歩を踏み出せずにいることも。
+                    私たち日本人は、「守る」ことや「おもてなし」は抜群です。<br/>
+                    ですが、それだけでは描いた未来は実現できません。<br/>
+                    知らないことは学び、仲間と知恵を共有する。<br/>
+                    楽しみながら自立し、自分の足で歩む。<br/>
+                    FIRST CLASSは、そんな大人の女性が集う場所です。
                   </p>
                 </AnimatedSection>
                 <AnimatedSection direction="up" delay={0.7}>
                   <div className="flex items-start">
                     <ArrowDownRight className="w-8 h-8 mr-4 text-pink-600 flex-shrink-0 animate-pulse" />
                     <p className="text-xl font-bold border-b-2 border-pink-600 pb-2 inline-block">
-                      「私には無理」と諦める前に。
+                      理想を現実に。私が選ぶ人生へ。
                     </p>
                   </div>
                 </AnimatedSection>
@@ -39,7 +40,7 @@ const Concept: React.FC = () => {
 
            <AnimatedSection direction="left" delay={0.4} className="relative h-[600px] md:h-auto overflow-hidden group">
               <ParallaxImage
-                 src="https://picsum.photos/1000/600?random=1"
+                 src="./images/concept.jpg"
                  alt="Concept"
                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                  speed={0.2}
@@ -69,7 +70,7 @@ const Concept: React.FC = () => {
                     Welcome to<br/>First Class
                  </h3>
                  <p className="text-gray-400 text-lg md:text-xl max-w-2xl">
-                   単なるビジネスコミュニティではありません。<br/>
+                   FIRSTCLASSは、単なるビジネスコミュニティではありません。<br/>
                    あなたの理想のライフデザインを、仲間と共に描き、実現するための<br/>「ライフデザインアカデミー」です。
                  </p>
               </div>

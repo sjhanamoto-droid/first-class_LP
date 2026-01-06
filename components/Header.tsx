@@ -30,8 +30,12 @@ const Header: React.FC = () => {
         <div className="max-w-[1920px] mx-auto px-6 lg:px-12 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#" className="text-2xl font-playfair font-black tracking-tighter text-black uppercase">
-              First Class
+            <a href="#" className="flex items-center">
+              <img 
+                src="./images/logo.png" 
+                alt="First Class" 
+                className="h-12 md:h-14 w-auto"
+              />
             </a>
           </div>
 
@@ -68,6 +72,13 @@ const Header: React.FC = () => {
       {/* Mobile Nav Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-white flex flex-col pt-24 px-6 animate-in slide-in-from-right duration-300">
+          <div className="flex justify-center mb-8">
+            <img 
+              src="./images/logo.png" 
+              alt="First Class" 
+              className="h-12 w-auto"
+            />
+          </div>
           {navLinks.map((link) => (
             <a 
               key={link.name} 

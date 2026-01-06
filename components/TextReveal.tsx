@@ -32,7 +32,7 @@ const TextReveal: React.FC<TextRevealProps> = ({
       if (elementRef.current) {
         const rect = elementRef.current.getBoundingClientRect();
         const isInViewport = rect.top < window.innerHeight * 1.5 && rect.bottom > -window.innerHeight * 0.5;
-        if (isInViewport && !isRevealed && !isVisible) {
+        if (isInViewport && !isRevealed) {
           const timer = setTimeout(() => {
             setIsRevealed(true);
           }, delay * 1000);
@@ -41,17 +41,24 @@ const TextReveal: React.FC<TextRevealProps> = ({
       }
     };
     
-    // 初期チェック
-    const timer1 = setTimeout(checkInitialVisibility, 100);
+    // 初期チェック（複数回試行して確実に表示）
+    const timers: NodeJS.Timeout[] = [];
+    for (let i = 0; i < 5; i++) {
+      timers.push(setTimeout(checkInitialVisibility, 100 * (i + 1)));
+    }
     
     // ロード時にもチェック
-    window.addEventListener('load', checkInitialVisibility);
+    if (document.readyState === 'complete') {
+      checkInitialVisibility();
+    } else {
+      window.addEventListener('load', checkInitialVisibility);
+    }
     
     return () => {
-      clearTimeout(timer1);
+      timers.forEach(timer => clearTimeout(timer));
       window.removeEventListener('load', checkInitialVisibility);
     };
-  }, [delay, isRevealed, isVisible]);
+  }, [delay, isRevealed]);
 
   return (
     <div

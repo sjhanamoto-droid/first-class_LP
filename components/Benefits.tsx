@@ -34,6 +34,7 @@ const Benefits: React.FC = () => {
              en: 'Financial Literacy',
              jp: 'お金の教養',
              desc: '資産づくり、株式投資（日本/米国）、NISA活用術',
+             detail: '自分の力で、5年で1億円以上を生み出す私へ。インフレに負けない資産防衛から、攻めの株式投資まで。「稼ぐ」だけでなく「増やす」スキルを習得し、真の経済的自立を叶えます。',
              features: ['インフレに負けない資産形成', '初心者からの投資スタート', 'Privateクラスでの上級編']
            },
            {
@@ -41,6 +42,7 @@ const Benefits: React.FC = () => {
              en: 'Business Skills',
              jp: 'ビジネススキル',
              desc: 'マーケティング、ライティング、SNS活用法',
+             detail: '4年で年商10億円。その「勝ち方」を伝授。実業家・石橋幸が実践してきたビジネス構築の極意を公開。グループコンサルや個別相談を通じ、あなたの事業を次のステージへ引き上げます。',
              features: ['月10〜20万を目指す実践スキル', '起業・副業の0→1サポート', 'Webデザイン講座']
            },
            {
@@ -48,6 +50,7 @@ const Benefits: React.FC = () => {
              en: 'Connections',
              jp: '圧倒的な繋がり',
              desc: '毎月の定例会やパーティで、刺激し合える仲間と出会う',
+             detail: '人生を変えるのは、質の高い「出会い」。「FIRST CLASS」の最大の資産は、人です。同じ高い志を持つ女性たちとの出会いが、ビジネスの拡大と心の豊かさをもたらします。',
              features: ['経営者とのマッチング', '異業種コラボレーション', '六本木オフィス利用権']
            },
            {
@@ -55,16 +58,17 @@ const Benefits: React.FC = () => {
              en: 'Premium Life',
              jp: '極上の特典',
              desc: '美・食・健・衣を豊かにする会員限定サービス',
-             features: ['高級別邸（南房総・琵琶湖）利用', '提携サロン優待', 'じゃらん法人サービス']
+             detail: '美・旅・暮らし。すべてに「FIRST CLASS」の輝きを。「FIRST CLASS」は、学びやビジネスだけで終わりません。手に入れた経済力・人脈・選択肢を、人生そのものの質へと変換するための特典をご用意しています。',
+             features: ['全国の厳選民泊＆ハワイコンドミニアム100棟を特別価格で', '専属アーティストTAKAHIROによるメイクアップ指導', '日用品が破格になる「会員割NEXT」利用権']
            }
          ].map((item, i) => (
            <AnimatedSection key={i} direction={i % 2 === 0 ? 'right' : 'left'} delay={0.1 * i}>
-             <div className="group border-b border-r border-gray-200 p-12 lg:p-16 hover:bg-gray-50 transition-all duration-500 cursor-pointer relative overflow-hidden">
+             <div className="group border-b border-r border-gray-200 p-10 md:p-12 lg:p-16 pb-8 md:pb-12 lg:pb-16 hover:bg-gray-50 transition-all duration-500 cursor-pointer relative overflow-hidden flex flex-col">
                 <div 
                   className="absolute inset-0 bg-gradient-to-br from-pink-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 ></div>
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-8">
+                <div className="relative z-10 flex flex-col flex-1">
+                  <div className="flex justify-between items-start mb-6">
                     <h3 
                       className="text-4xl md:text-5xl font-oswald font-bold text-gray-200 group-hover:text-black transition-all duration-500"
                       style={{
@@ -76,26 +80,34 @@ const Benefits: React.FC = () => {
                     <span className="bg-black text-white text-xs px-2 py-1 font-oswald uppercase tracking-wider group-hover:bg-pink-600 transition-colors duration-300">{item.en}</span>
                   </div>
                   
-                  <h4 className="text-2xl font-bold mb-4 group-hover:scale-105 transition-transform duration-300 inline-block">{item.jp}</h4>
-                  <p className="text-gray-600 mb-8 font-medium">{item.desc}</p>
+                  <h4 className="text-2xl md:text-3xl font-bold mb-3 group-hover:scale-105 transition-transform duration-300">{item.jp}</h4>
+                  <p className="text-gray-500 text-sm mb-4 font-medium">{item.desc}</p>
                   
-                  <ul className="space-y-3">
-                     {item.features.map((f, j) => (
-                       <li 
-                         key={j} 
-                         className="flex items-center text-sm text-gray-500 group-hover:text-gray-700 transition-colors"
-                         style={{
-                           opacity: 0,
-                           animation: `fadeInUp 0.5s ease-out ${0.3 + j * 0.1}s forwards`,
-                         }}
-                       >
-                          <span className="w-4 h-4 bg-pink-600 flex items-center justify-center rounded-full mr-3 text-white text-[10px] group-hover:scale-110 transition-transform duration-300">
-                            <Check className="w-3 h-3"/>
-                          </span>
-                          {f}
-                       </li>
-                     ))}
-                  </ul>
+                  {item.detail && (
+                    <div className="mb-4 pb-4 border-b border-gray-200">
+                      <p className="text-gray-700 leading-relaxed text-base md:text-lg">{item.detail}</p>
+                    </div>
+                  )}
+                  
+                  <div className="mt-4">
+                    <ul className="space-y-3">
+                       {item.features.map((f, j) => (
+                         <li 
+                           key={j} 
+                           className="flex items-center text-sm text-gray-500 group-hover:text-gray-700 transition-colors"
+                           style={{
+                             opacity: 0,
+                             animation: `fadeInUp 0.5s ease-out ${0.3 + j * 0.1}s forwards`,
+                           }}
+                         >
+                            <span className="w-4 h-4 bg-pink-600 flex items-center justify-center rounded-full mr-3 text-white text-[10px] group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                              <Check className="w-3 h-3"/>
+                            </span>
+                            <span>{f}</span>
+                         </li>
+                       ))}
+                    </ul>
+                  </div>
                 </div>
              </div>
            </AnimatedSection>

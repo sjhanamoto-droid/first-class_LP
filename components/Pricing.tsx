@@ -20,8 +20,8 @@ const Pricing: React.FC = () => {
                    <p className="font-bold text-gray-500">年額プラン</p>
                 </div>
                 <div className="p-10 md:p-16 flex flex-col justify-center items-start md:items-end">
-                   <div className="text-5xl md:text-6xl font-oswald font-bold mb-2">¥88,000</div>
-                   <p className="text-sm font-bold text-pink-600">2ヶ月分お得 (月あたり¥7,333)</p>
+                   <div className="text-5xl md:text-6xl font-oswald font-bold mb-2">¥99,000</div>
+                   <p className="text-sm font-bold text-pink-600">2ヶ月分お得 (月あたり¥8,250)</p>
                 </div>
              </div>
 
@@ -32,7 +32,7 @@ const Pricing: React.FC = () => {
                    <p className="font-bold text-gray-500 text-sm">月額プラン</p>
                 </div>
                 <div className="p-10 flex flex-col justify-center items-start md:items-end">
-                   <div className="text-4xl font-oswald font-bold">¥8,800</div>
+                   <div className="text-4xl font-oswald font-bold">¥9,900</div>
                 </div>
              </div>
 
@@ -52,7 +52,7 @@ const Pricing: React.FC = () => {
              <Button variant="gold" size="xl" withArrow>
                今すぐメンバー登録する
              </Button>
-             <p className="mt-4 text-gray-500 text-sm">公式LINEへ移動します</p>
+             <p className="mt-4 text-sm" style={{ color: '#06C755' }}>公式LINEへ移動します</p>
           </div>
        </div>
     </section>

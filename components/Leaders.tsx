@@ -33,7 +33,7 @@ const Leaders: React.FC = () => {
                     </p>
                     <h4 className="text-4xl md:text-5xl text-white font-serif font-bold mb-6">石橋 幸 <span className="text-xl font-sans font-light opacity-80">Sachi Ishibashi</span></h4>
                     <p className="text-gray-200 max-w-xl leading-relaxed">
-                      投資家・実業家。エステティシャンから投資家へ。2児の母であり、がんサバイバー。「人と人との繋がりによって病気から快方に向かえた」経験からコミュニティを設立。
+                      エステティシャンから投資家へ転身し、わずか4年で数億円規模の株取引を行う実績を持つ。プライベートでは2児の母であり、がんサバイバー。「人と人との繋がりによって病気から快方に向かえた」という自身の実体験から、女性の幸せと自立を支援する本コミュニティを設立。
                     </p>
                  </div>
               </div>
@@ -65,7 +65,7 @@ const Leaders: React.FC = () => {
         <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-gray-50 p-12 md:p-20">
            <AnimatedSection direction="right" delay={0.3} className="order-2 md:order-1">
               <TextReveal delay={0.4}>
-                <h3 className="text-3xl font-serif font-bold mb-6">「人と人との繋がりが、<br/>"幸せ"を広げる力になる」</h3>
+                <h3 className="text-3xl font-serif font-bold mb-6">全ての女性が自立すること。<br/>選択の自由をもてる世界へ</h3>
               </TextReveal>
               <AnimatedSection direction="up" delay={0.5}>
                 <p className="text-gray-600 leading-relaxed mb-6">
