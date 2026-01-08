@@ -1,6 +1,6 @@
 import React from 'react';
 import SectionTitle from './SectionTitle';
-import { Smartphone, FileEdit, Headphones, Sparkles } from 'lucide-react';
+import { Smartphone, FileEdit, Sparkles } from 'lucide-react';
 
 const Flow: React.FC = () => {
   const steps = [
@@ -15,11 +15,6 @@ const Flow: React.FC = () => {
       desc: "フォームより必要事項を入力して手続き"
     },
     {
-      icon: <Headphones className="w-8 h-8" />,
-      title: "ヒアリング",
-      desc: "オンラインにて1時間のパーソナルコンサル"
-    },
-    {
       icon: <Sparkles className="w-8 h-8" />,
       title: "利用開始",
       desc: "セミナー参加や六本木オフィス利用スタート！"
@@ -31,7 +26,7 @@ const Flow: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle en="FLOW" ja="入会までの流れ" />
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {steps.map((step, idx) => (
             <div key={idx} className="relative flex flex-col items-center text-center">
               {/* Connector Line */}

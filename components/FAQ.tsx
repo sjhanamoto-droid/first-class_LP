@@ -14,7 +14,7 @@ const FAQ: React.FC = () => {
     },
     {
       q: "男性は参加できますか？",
-      a: "申し訳ございません。FIRST CLASSは女性限定のコミュニティとなっております。女性ならではの悩みやキャリア形成に特化した環境を提供しております。"
+      a: "FIRST CLASSは、女性ならではの悩みやキャリア形成に特化した女性限定コミュニティとなっております。そのため、通常メンバーとしてのご参加は女性のみとさせていただいております。\n\nなお、男性の方には協賛という形で関わっていただくことが可能です。協賛企業・個人様には、コミュニティとのつながりを活かした機会の提供や、六本木オフィスの利用など、協賛者向けの特典をご用意しております。\n\n詳細な内容や条件については、状況に応じてご案内しておりますので、まずはお気軽にお問い合わせください。"
     },
     {
       q: "退会はいつでもできますか？",
@@ -54,10 +54,10 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
       </button>
       <div 
         className={`px-6 transition-all duration-300 ease-in-out ${
-          isOpen ? 'max-h-48 py-4 opacity-100' : 'max-h-0 py-0 opacity-0'
+          isOpen ? 'max-h-96 py-4 opacity-100' : 'max-h-0 py-0 opacity-0'
         } bg-pink-50`}
       >
-        <p className="text-gray-700 text-sm leading-relaxed">
+        <p className="text-gray-700 text-sm leading-relaxed whitespace-pre-line">
           <span className="font-bold text-gray-500 mr-3">A.</span>
           {answer}
         </p>
