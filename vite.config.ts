@@ -14,7 +14,8 @@ export default defineConfig(({ command }) => {
         plugins: [react()],
         server: {
             port: 3000,
-            host: 'localhost',
+            host: '0.0.0.0', // すべてのネットワークインターフェースでリッスン
+            open: true, // 自動的にブラウザを開く
         },
     define: {
         'process.env.API_KEY': JSON.stringify(process.env.GEMINI_API_KEY || ''),

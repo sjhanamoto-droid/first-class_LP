@@ -93,3 +93,4 @@ const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose }) => {
 
 export default LegalModal;
 
+

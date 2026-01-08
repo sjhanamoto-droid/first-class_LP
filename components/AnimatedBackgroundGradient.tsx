@@ -28,3 +28,4 @@ const AnimatedBackgroundGradient: React.FC = () => {
 
 export default AnimatedBackgroundGradient;
 
+

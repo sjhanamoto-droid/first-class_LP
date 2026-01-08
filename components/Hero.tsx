@@ -111,13 +111,14 @@ const Hero: React.FC = () => {
            </div>
         </div>
 
-        {/* Right: Image */}
+        {/* Right: Video */}
         <div className="md:col-span-7 relative h-[40vh] md:h-full order-1 md:order-2 overflow-hidden border-l border-gray-200 mb-4 md:mb-0">
            <ParallaxImage
-             src="./images/hero.jpg"
-             alt="Woman Galaxy"
-             className="w-full h-full object-cover hero-image-colorize"
+             src="./mov/top.mp4"
+             alt="Hero Video"
+             className="w-full h-full object-cover"
              speed={0.3}
+             isVideo={true}
            />
         </div>
 
