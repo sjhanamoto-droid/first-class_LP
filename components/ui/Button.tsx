@@ -37,11 +37,19 @@ const Button: React.FC<ButtonProps> = ({
 
   const widthStyles = fullWidth ? "w-full" : "";
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (props.onClick) {
+      props.onClick(e);
+    } else {
+      window.open('https://page.j-group.club/line/open/R2F6YjX0qs62?mtid=LqNMmgsH3yO8&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUvRMaapnUE29K1DhyqiqeUsxYb6m-G9mpSzbbPEIFMx8WaMPNFR2MCnzWxQ_aem_iQf-kzymyRzgRhaYm8iCxw', '_blank');
+    }
+  };
+
   return (
     <button 
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${widthStyles} ${className}`}
       {...props}
-      onClick={() => window.open('https://line.me/R/ti/p/@example', '_blank')}
+      onClick={handleClick}
     >
       <span className="relative z-10 flex items-center">
         {children}

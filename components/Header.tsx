@@ -52,7 +52,7 @@ const Header: React.FC = () => {
               </a>
             ))}
             <button 
-              onClick={() => window.open('https://line.me', '_blank')}
+              onClick={() => window.open('https://page.j-group.club/line/open/R2F6YjX0qs62?mtid=LqNMmgsH3yO8&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUvRMaapnUE29K1DhyqiqeUsxYb6m-G9mpSzbbPEIFMx8WaMPNFR2MCnzWxQ_aem_iQf-kzymyRzgRhaYm8iCxw', '_blank')}
               className="bg-black text-white px-6 py-2 text-sm font-oswald font-bold tracking-widest hover:bg-pink-600 transition-colors uppercase"
             >
               Join Member
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
           ))}
           <div className="mt-8">
             <button 
-              onClick={() => window.open('https://line.me', '_blank')}
+              onClick={() => window.open('https://page.j-group.club/line/open/R2F6YjX0qs62?mtid=LqNMmgsH3yO8&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnUvRMaapnUE29K1DhyqiqeUsxYb6m-G9mpSzbbPEIFMx8WaMPNFR2MCnzWxQ_aem_iQf-kzymyRzgRhaYm8iCxw', '_blank')}
               className="w-full bg-black text-white py-4 text-xl font-oswald font-bold tracking-widest uppercase"
             >
               Join Member
