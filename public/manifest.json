@@ -1,0 +1,23 @@
+{
+  "name": "FIRST CLASS - 理想の生き方を、仲間とともに実現する。女性起業家コミュニティ",
+  "short_name": "FIRST CLASS",
+  "description": "理想の生き方を、仲間とともに実現する。女性起業家コミュニティ FIRST CLASS",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ec4899",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
