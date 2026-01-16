@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
                  transition: 'opacity 1s ease-out 0.6s, transform 1s ease-out 0.6s',
                }}
              >
-               女性起業家<br/>
+               女性支援<br/>
                コミュニティ<br/>
                <span 
                  className="text-pink-600"
