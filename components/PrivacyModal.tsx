@@ -34,7 +34,7 @@ const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) => {
           <div className="space-y-6 text-gray-700 leading-relaxed">
             <div>
               <p className="mb-4">
-                株式会社 J-RISING（以下「当社」といいます）は、当社が運営する女性起業家コミュニティ「FIRST CLASS」（以下「本サービス」といいます）において、お客様の個人情報をどのように取り扱うかについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます）を定めます。
+                株式会社 J-RISING（以下「当社」といいます）は、当社が運営する女性支援コミュニティ「FIRST CLASS」（以下「本サービス」といいます）において、お客様の個人情報をどのように取り扱うかについて、以下のとおりプライバシーポリシー（以下「本ポリシー」といいます）を定めます。
               </p>
             </div>
 
