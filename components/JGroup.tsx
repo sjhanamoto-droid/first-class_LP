@@ -72,12 +72,7 @@ const JGroup: React.FC = () => {
 
                     {/* Logo (正方形) */}
                     <div className="mb-6 flex justify-center">
-                      <a
-                        href={service.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-32 h-32 bg-white border-2 border-gray-300 flex items-center justify-center hover:border-pink-600 transition-colors overflow-hidden"
-                      >
+                      <div className="w-32 h-32 bg-white border-2 border-gray-300 flex items-center justify-center overflow-hidden">
                         {service.logo ? (
                           <img
                             src={service.logo}
@@ -89,23 +84,11 @@ const JGroup: React.FC = () => {
                             Logo
                           </span>
                         )}
-                      </a>
+                      </div>
                     </div>
 
                     {/* Links */}
                     <div className="flex flex-col items-center gap-4">
-                      {/* Website Link */}
-                      {service.website && (
-                        <a
-                          href={service.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-oswald font-bold uppercase tracking-wider text-gray-700 hover:text-pink-600 transition-colors"
-                        >
-                          Website
-                        </a>
-                      )}
-
                       {/* Instagram Link */}
                       {service.instagram && (
                         <a
