@@ -43,7 +43,7 @@ export default defineConfig(({ command }) => {
         plugins: [react(), manifestPlugin(base)],
         server: {
             port: 3000,
-            host: '0.0.0.0', // すべてのネットワークインターフェースでリッスン
+            host: 'localhost', // localhostでリッスン
             open: true, // 自動的にブラウザを開く
         },
     define: {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
@@ -30,13 +31,13 @@ const Header: React.FC = () => {
         <div className="max-w-[1920px] mx-auto px-6 lg:px-12 flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img 
                 src="./images/logo.png" 
                 alt="First Class" 
                 className="h-12 md:h-14 w-auto"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Nav */}
