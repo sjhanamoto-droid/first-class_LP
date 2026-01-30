@@ -7,6 +7,7 @@ interface Service {
   logo?: string;
   website?: string;
   activityUrl?: string; // [ACTIVITY] リンク（任意）
+  vacationRentalUrl?: string; // [Vacation Rental] リンク（任意）
   instagram?: string;
 }
 
@@ -21,6 +22,7 @@ const services: Service[] = [
     logo: './images/logo/jnavi.png',
     website: 'https://jnavi.co.jp',
     activityUrl: 'https://min-paku.ja.jnavi.co.jp/',
+    vacationRentalUrl: 'https://vacation-rental.jnavi.co.jp/ja/',
     instagram: 'https://www.instagram.com/vacationrentals_jnavi?igsh=bDZ6azFxcWp1azV6',
   },
   {
@@ -30,7 +32,7 @@ const services: Service[] = [
     instagram: 'https://www.instagram.com/money_study_college/',
   },
   {
-    name: 'エシュロンヴィレッジ',
+    name: 'Échelon Village',
     logo: './images/logo/echelon.png',
     website: 'https://echelonvillage.co.jp/',
     instagram: 'https://www.instagram.com/eche.lonvillage',
@@ -137,6 +139,17 @@ const JGroup: React.FC = () => {
                           className="text-sm font-oswald font-bold uppercase tracking-wider text-pink-600 hover:text-pink-700 transition-colors"
                         >
                           [ACTIVITY]
+                        </a>
+                      )}
+                      {/* Vacation Rental Link */}
+                      {service.vacationRentalUrl && (
+                        <a
+                          href={service.vacationRentalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-oswald font-bold uppercase tracking-wider text-pink-600 hover:text-pink-700 transition-colors"
+                        >
+                          [Vacation Rental]
                         </a>
                       )}
                       {/* Instagram Link */}
