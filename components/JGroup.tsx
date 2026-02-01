@@ -5,9 +5,10 @@ import AnimatedSection from './AnimatedSection';
 interface Service {
   name: string;
   logo?: string;
+  logoUrl?: string; // ロゴのリンク先（未指定時は website を使用）
   website?: string;
-  activityUrl?: string; // [ACTIVITY] リンク（任意）
-  vacationRentalUrl?: string; // [Vacation Rental] リンク（任意）
+  activityUrl?: string;
+  vacationRentalUrl?: string;
   instagram?: string;
 }
 
@@ -28,6 +29,7 @@ const services: Service[] = [
   {
     name: 'マネスタ',
     logo: './images/logo/manesuta.png',
+    logoUrl: 'https://www.instagram.com/money_study_college/',
     website: 'https://min-paku.ja.jnavi.co.jp/',
     instagram: 'https://www.instagram.com/money_study_college/',
   },
@@ -96,9 +98,9 @@ const JGroup: React.FC = () => {
 
                     {/* Logo (正方形) */}
                     <div className="mb-6 flex justify-center">
-                      {service.website ? (
+                      {(service.logoUrl ?? service.website) ? (
                         <a
-                          href={service.website}
+                          href={service.logoUrl ?? service.website}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-32 h-32 bg-gray-50 border-2 border-gray-300 flex items-center justify-center overflow-hidden rounded-lg hover:border-gray-400 transition-all"
