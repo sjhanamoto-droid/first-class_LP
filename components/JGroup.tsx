@@ -27,11 +27,10 @@ const services: Service[] = [
     instagram: 'https://www.instagram.com/vacationrentals_jnavi?igsh=bDZ6azFxcWp1azV6',
   },
   {
-    name: 'マネスタ',
-    logo: './images/logo/manesuta.png',
-    logoUrl: 'https://www.instagram.com/money_study_college/',
-    website: 'https://min-paku.ja.jnavi.co.jp/',
-    instagram: 'https://www.instagram.com/money_study_college/',
+    name: 'SAMURAI RESTAURANT',
+    logo: './images/logo/samurai.png',
+    website: 'https://sjhanamoto-droid.github.io/rakurakuan_activity/',
+    instagram: 'https://www.instagram.com/samurai.restaurant.omakase/',
   },
   {
     name: 'Échelon Village',

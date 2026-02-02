@@ -43,8 +43,14 @@ export default defineConfig(({ command }) => {
         plugins: [react(), manifestPlugin(base)],
         server: {
             port: 3000,
-            host: 'localhost', // localhostでリッスン
-            open: true, // 自動的にブラウザを開く
+            host: 'localhost',
+            open: true,
+            watch: {
+                usePolling: false,
+            },
+            hmr: {
+                overlay: true,
+            },
         },
     define: {
         'process.env.API_KEY': JSON.stringify(process.env.GEMINI_API_KEY || ''),
