@@ -39,7 +39,7 @@ const services: Service[] = [
     instagram: 'https://www.instagram.com/eche.lonvillage',
   },
   {
-    name: 'ファーストクラス',
+    name: 'FIRST CLASS',
     logo: './images/logo/firstclass.png',
     website: 'https://class-info.jp',
     instagram: 'https://www.instagram.com/js_firstclass/',
